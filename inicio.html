@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 id="welcome">Bem vindo ao simulador de Poupanças</h1>
+
+    <div class="simulador">
+        
+        <h3 id="simulation2">Simulador</h3>
+
+        <label for="ValorInicial">Valor Inicial:</label><br>
+        <input type="number" id="ValorInicial" name="ValorInicial"><br><br>
+
+        <label for="depositoMensal">Depósito Mensal:</label><br>
+        <input type="number" id="depositoMensal" name="depositoMensal"><br><br>
+
+        <label for="tempo">Tempo (em meses):</label><br>
+        <input type="number" id="tempo" name="tempo"><br><br>
+
+        <label for="juros">Taxa de juros (% ao Mês):</label><br>
+        <input type="number" id="juros" name="juros"><br><br>
+
+        <button type="button" onclick="Simular()">Simular</button>
+        <p id="resultado"></p>
+
+    </div>
+
+    <script>
+        function Simular() {
+
+            let ValorInicial = parseFloat(document.getElementById("ValorInicial").value)
+            let depositoMensal = parseFloat(document.getElementById("depositoMensal").value);
+            let tempo = parseInt(document.getElementById("tempo").value);
+            let juros = parseFloat(document.getElementById("juros").value) / 100; // transformando em decimal
+
+
+            if(isNaN(ValorInicial) || isNaN(depositoMensal) || isNaN(tempo) || isNaN(juros)) {
+                document.getElementById("resultado").innerText = "Por favor, preencha todos os campos corretamente.";
+                return;
+            }
+
+            // Cálculo do valor futuro
+            let valorFinal = ValorInicial * Math.pow((1 + juros), tempo) +
+            depositoMensal * ((Math.pow((1 + juros), tempo) - 1) / juros);
+
+             let jurosGanhos = valorFinal - (ValorInicial + depositoMensal * tempo);
+
+             // Exibindo o resultado
+           document.getElementById("resultado").innerHTML =
+           `<strong>Valor Final:</strong> R$ ${valorFinal.toFixed(2)}<br>` +
+           `<strong>Juros Ganhos:</strong> R$ ${jurosGanhos.toFixed(2)}`;
+           localStorage.setItem('resultadoSimulador', document.getElementById("resultado").innerHTML);
+
+        }
+    </script>
+
+    <script src="salvarDados.js"></script>
+    
+</body>
+</html>

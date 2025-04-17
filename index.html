@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simulador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="onecount">
+        <h1>Simulador de Poupanças</h1>
+
+
+        <h2>Crie sua conta</h2>
+        <form id="loginForm">
+            <label for="usuario">Usuário:</label><br>
+            <input type="text" id="usuario" name="usuario" placeholder="Digite seu nome de usuário:"><br><br>
+
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha:"><br><br>
+
+            <label for="date">Data de nascimento:</label><br>
+            <input type="date" id="date" name="date"><br><br>
+
+        </form>
+
+        <p id="mensagemLogin"></p>
+        <button type="button" onclick="fazerLogin()">Entrar</button>
+
+    </div>
+
+    <script>
+
+        function fazerLogin() {
+            let usuario = document.getElementById("usuario").value
+            let senha = document.getElementById("senha").value
+            let date = document.getElementById("date").value
+
+            if (usuario === "" || senha === "" || date === "") {
+                document.getElementById("mensagemLogin").innerText = "Por favor, preencha todos os campos.";
+            } else {
+                localStorage.setItem('usuario', usuario);
+                localStorage.setItem('senha', senha);
+                window.location.href = "inicio.html";
+            }
+        }
+    </script>
+
+    <script src="salvarDados.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* Reset básico para tirar margens padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do body */
+body {
+    background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); /* Imagem de pessoas trabalhando */
+    background-size: cover; /* Cobre toda a página */
+    background-position: center; /* Centraliza */
+    background-repeat: no-repeat; /* Não repete */
+    background-attachment: fixed; /* Fundo fixo ao rolar */
+    color: #ffffff; /* Texto branco para contraste */
+    font-family: 'Roboto', sans-serif; /* Fonte padrão */
+    line-height: 1.6;
+    min-height: 100vh; /* Garante que o fundo cubra a tela */
+}
+
+/* Container principal (onecount e simulador) */
+.onecount, .simulador {
+    width: 90%; /* Um pouco mais largo */
+    max-width: 400px; /* Tamanho compacto */
+    margin: 40px auto; /* Centralizado na página */
+    padding: 20px;
+    background-color: rgba(30, 30, 30, 0.9); /* Cinza com transparência */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Títulos gerais */
+h1 {
+    color: #1db954; 
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+h3 {
+    color: #1db954;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Título "Bem vindo ao simulador de Poupanças" */
+#welcome {
+    color: #ffffff; /* Branco */
+    font-family: 'Montserrat', sans-serif; /* Fonte estilosa */
+    font-weight: 700; /* Gordinho */
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 20px auto;
+    width: 100%;
+}
+
+/* Labels */
+label {
+    color: #b3b3b3;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Ajuste específico para "Senha" e "Data de nascimento" */
+#loginForm label[for="senha"],
+#loginForm label[for="date"] {
+    margin-bottom: 2px; /* Menos espaço */
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+}
+
+/* Campo de usuário maior */
+#loginForm input[id="usuario"] {
+    max-width: 300px; /* Maior para o placeholder */
+}
+
+/* Inputs do simulador */
+.simulador input[type="number"] {
+    max-width: 200px; /* Tamanho para números */
+}
+
+/* Foco nos inputs */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+    background-color: #3a3a3a;
+}
+
+/* Placeholder */
+input::placeholder {
+    color: #b3b3b3;
+}
+
+/* Botões */
+button, input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #1db954;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #17a34a;
+}
+
+/* Mensagem de erro ou resultado */
+#mensagemLogin, #resultado {
+    margin-top: 20px;
+    text-align: left;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Estilo específico para o resultado */
+#resultado strong {
+    color: #1db954;
+}
+
+/* Ícone do calendário */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+}
